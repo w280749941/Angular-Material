@@ -1,6 +1,8 @@
-<md-toolbar color="primary">
-  <button md-icon-button (click)="openSideBar()">
-    <md-icon>menu</md-icon>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="openSideBar()">
+    <mat-icon>menu</mat-icon>
   </button>
   <span>Some Platform</span>
-</md-toolbar>
+  <span class="fill-remaining-space"></span>
+  <mat-slide-toggle (change)="onChange($event)">Night Mode</mat-slide-toggle>
+</mat-toolbar>

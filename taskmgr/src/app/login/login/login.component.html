@@ -1,17 +1,35 @@
-<md-card>
-    <md-card-header>
-      <md-card-title>Login: </md-card-title>
-    </md-card-header>
-    <md-card-content>
-      <md-input-container align="end">
-        <span mdPrefix>wang</span>
-        <input mdInput type="text" placeholder="your email">
-        <span mdSuffix>@gmail</span>
-        <md-hint>Hint: ------</md-hint>
-      </md-input-container>
-    </md-card-content>
-    <md-card-actions>
+<form>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login: </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-input-container class="full-width">
+        <input matInput type="text" placeholder="your email">
+      </mat-input-container>
+      <mat-input-container class="full-width">
+        <input matInput type="password" placeholder="your password">
+      </mat-input-container>
+      <button mat-raised-button color="primary" type="button">Login</button>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
       <p>No account? <a href="">Register</a></p>
       <p>Forget password? <a href="">Forget</a></p>
-    </md-card-actions>
-  </md-card>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Daily Words
+      </mat-card-title>
+      <mat-card-subtitle>
+        Work hard, Play hard.
+      </mat-card-subtitle>
+    </mat-card-header>
+      <img mat-card-image src="/assets/fallback.jpg" alt="">    
+    <mat-card-content>
+      Some words.
+    </mat-card-content>
+  </mat-card>
+</form>
