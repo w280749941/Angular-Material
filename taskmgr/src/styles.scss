@@ -18,7 +18,7 @@ main {
 }
 
 .full-width {
-    width: 100%;
+    width: 100% !important; // OverlayCotainer add dark theme over writes this, so added !important.
 }
 
 .fill-remaining-space {

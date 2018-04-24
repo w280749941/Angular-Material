@@ -7,8 +7,20 @@ import {
   MatCardModule,
   MatInputModule,
   MatListModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatGridListModule,
+  MatDialog,
+  MatDialogModule,
+  MatAutocompleteModule,
+  MatMenuModule,
+  MatCheckboxModule,
+  MatTooltipModule,
+  MatDatepickerModule,
+  MatRadioModule,
+  MatNativeDateModule,
+  MatSelectModule
 } from '@angular/material';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [
@@ -20,6 +32,16 @@ import {
     MatInputModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatSelectModule,
   ],
   exports: [
     CommonModule,
@@ -30,7 +52,21 @@ import {
     MatInputModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatSelectModule,
+
   ],
-  declarations: []
+  entryComponents: [
+    ConfirmDialogComponent,
+  ],
+  declarations: [ConfirmDialogComponent]
 })
 export class SharedModule { }
