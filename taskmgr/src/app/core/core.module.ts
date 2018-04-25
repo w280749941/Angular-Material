@@ -8,13 +8,16 @@ import { HttpModule } from '@angular/http';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources } from '../utils/svg.util';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 import 'hammerjs';
 @NgModule({
   imports: [
     HttpModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   declarations: [
     HeaderComponent,
@@ -24,7 +27,10 @@ import 'hammerjs';
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
   ]
 })
 export class CoreModule {

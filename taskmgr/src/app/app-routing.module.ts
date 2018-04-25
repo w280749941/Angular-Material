@@ -9,7 +9,7 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'project',
+        path: 'projects',
         redirectTo: '/project',
         pathMatch: 'full'
     },
