@@ -1,0 +1,7 @@
+<mat-input-container class="full-width">
+  <input matInput type="text" placeholder="Create a quick task here" [(ngModel)]="desc" name="desc" required>
+  <button matSuffix mat-icon-button type="button" (click)="sendQuickTask()">
+    <mat-icon>send</mat-icon>
+  </button>
+  <mat-error>Can't be empty</mat-error>
+</mat-input-container>

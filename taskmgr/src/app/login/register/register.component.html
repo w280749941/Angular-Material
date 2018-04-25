@@ -1,31 +1,43 @@
-<form>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Register: </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-input-container class="full-width">
-          <input matInput type="text" placeholder="your email">
-        </mat-input-container>
-        <mat-input-container class="full-width">
-            <input matInput type="text" placeholder="your name">
-          </mat-input-container>
-        <mat-input-container class="full-width">
-          <input matInput type="password" placeholder="your password">
-        </mat-input-container>
-        <mat-input-container class="full-width">
-          <input matInput type="password" placeholder="confirm password">
-        </mat-input-container>
-        <mat-grid-list cols="6">
-          <mat-grid-tile *ngFor="let item of items">
-            <mat-icon class="avatar" [svgIcon]="item"></mat-icon>  
-          </mat-grid-tile>
-        </mat-grid-list>
-        <button mat-raised-button color="primary" type="button">Register</button>
-      </mat-card-content>
-      <mat-card-actions class="text-right">
-        <p>No account? <a href="">Login</a></p>
-        <p>Forget password? <a href="">Forget</a></p>
-      </mat-card-actions>
-    </mat-card>
-  </form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register: </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-input-container class="full-width">
+        <input matInput type="text" placeholder="your email" formControlName="email">
+      </mat-input-container>
+      <mat-input-container class="full-width">
+        <input matInput type="text" placeholder="your name" formControlName="name">
+      </mat-input-container>
+      <mat-input-container class="full-width">
+        <input matInput type="password" placeholder="your password" formControlName="password">
+      </mat-input-container>
+      <mat-input-container class="full-width">
+        <input matInput type="password" placeholder="confirm password" formControlName="repeat">
+      </mat-input-container>
+      <!-- <mat-grid-list cols="6">
+        <mat-grid-tile *ngFor="let item of items">
+          <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
+        </mat-grid-tile>
+      </mat-grid-list> -->
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="6"
+        [title]="'Choose an avatar: '"
+        [items]="items"
+        formControlName="avatar"
+        >
+      </app-image-list-select>
+      <button mat-raised-button color="primary" type="button">Register</button>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>No account?
+        <a href="">Login</a>
+      </p>
+      <p>Forget password?
+        <a href="">Forget</a>
+      </p>
+    </mat-card-actions>
+  </mat-card>
+</form>

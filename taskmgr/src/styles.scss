@@ -3,9 +3,9 @@
 @import 'theme.scss';
 
 html, body, app-root, mat-sidenav-container, .site {
+    margin: 0;
     width: 100%;
     height: 100%;
-    margin: 0;
 }
 
 .site {
@@ -14,8 +14,16 @@ html, body, app-root, mat-sidenav-container, .site {
 }
 
 main {
+    -ms-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
-}
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
 .full-width {
     width: 100% !important; // OverlayCotainer add dark theme over writes this, so added !important.
