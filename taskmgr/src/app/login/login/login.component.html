@@ -25,12 +25,12 @@
         Daily Words
       </mat-card-title>
       <mat-card-subtitle>
-        Work hard, Play hard.
+        {{quote.cn}}
       </mat-card-subtitle>
     </mat-card-header>
-      <img mat-card-image src="/assets/fallback.jpg" alt="">    
+      <img mat-card-image [src]="quote.pic" alt="quote image">    
     <mat-card-content>
-      Some words.
+      {{quote.en}}
     </mat-card-content>
   </mat-card>
 </form>

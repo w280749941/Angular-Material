@@ -12,11 +12,13 @@ import { AppRoutingModule } from '../app-routing.module';
 import 'rxjs/add/operator/take';
 
 import 'hammerjs';
+import { ServicesModule } from '../services/services.module';
 @NgModule({
   imports: [
     HttpModule,
     BrowserAnimationsModule,
     SharedModule,
+    ServicesModule.forRoot(),
     AppRoutingModule,
   ],
   declarations: [
@@ -30,17 +32,24 @@ import 'hammerjs';
     SidebarComponent,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+  ],
+  providers: [
+    {
+      provide: 'BASE_CONFIG',
+      useValue: {
+        uri: 'http://localhost:3000',
+      },
+    },
   ]
 })
 export class CoreModule {
   // @SkipSelft to prevent infinity loop.
   // @Optional for first time construction
   constructor(@Optional() @SkipSelf() parent: CoreModule,
-              iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     if (parent) {
       throw new Error('Already exist a core module, can not load more');
     }
     loadSvgResources(iconRegistry, sanitizer);
   }
- }
+}
