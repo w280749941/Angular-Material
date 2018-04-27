@@ -45,3 +45,5 @@ Thumbs.db
 
 # Data files
 data.json
+area.data.ts
+identity.data.ts
