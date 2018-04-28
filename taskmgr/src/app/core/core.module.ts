@@ -35,12 +35,14 @@ import 'rxjs/add/operator/do';
 import 'hammerjs';
 import '../utils/debug.util';
 import { ServicesModule } from '../services/services.module';
+import { AppStoreModule } from '../reducers';
 @NgModule({
   imports: [
     HttpModule,
     BrowserAnimationsModule,
     SharedModule,
     ServicesModule.forRoot(),
+    AppStoreModule,
     AppRoutingModule,
   ],
   declarations: [

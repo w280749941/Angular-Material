@@ -14,19 +14,18 @@
         <mat-input-container class="full-width">
           <input matInput type="password" placeholder="Confirm" formControlName="repeat">
         </mat-input-container>
-        <app-image-list-select
-          [useSvgIcon]="true"
-          [cols]="6"
-          [title]="'Choose avatar：'"
-          [items]="avatars$ | async"
-          formControlName="avatar">
+        <app-image-list-select [useSvgIcon]="true" [cols]="6" [title]="'Choose avatar：'" [items]="avatars$ | async" formControlName="avatar">
         </app-image-list-select>
         <div class="full-width action-area">
           <button mat-raised-button type="button" (click)="nextTab()">Next</button>
           <span class="fill-remaining-space"></span>
           <span>
-            <span>Have account？ <a routerLink="/login">Login</a></span>
-            <span>Forget <a routerLink="/forgot">Password？</a></span>
+            <span>Have account？
+              <a routerLink="/login">Login</a>
+            </span>
+            <span>Forget
+              <a routerLink="/forgot">Password？</a>
+            </span>
           </span>
         </div>
       </mat-tab>
@@ -44,8 +43,12 @@
           <button mat-raised-button type="submit" [disabled]="!form.valid">Register</button>
           <span class="fill-remaining-space"></span>
           <span>
-            <span>Have account？ <a routerLink="/login">Login</a></span>
-            <span>Forget <a routerLink="/forgot">Password？</a></span>
+            <span>Have account？
+              <a routerLink="/login">Login</a>
+            </span>
+            <span>Forget
+              <a routerLink="/forgot">Password？</a>
+            </span>
           </span>
         </div>
       </mat-tab>
