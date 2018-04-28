@@ -28,7 +28,7 @@
         {{(quote$ | async).cn}}
       </mat-card-subtitle>
     </mat-card-header>
-      <img mat-card-image [src]="(quote$ | async).pic" alt="quote image">    
+      <img mat-card-image [src]="(quote$ | async)?.pic" alt="quote image">    
     <mat-card-content>
       {{(quote$ | async).en}}
     </mat-card-content>

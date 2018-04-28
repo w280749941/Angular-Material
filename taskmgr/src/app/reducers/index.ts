@@ -6,6 +6,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import * as fromQuote from './quote.reducer';
 import { compose } from '@ngrx/core/src/compose';
 import { environment } from '../../environments/environment';
+import { createSelector } from 'reselect';
 
 // import * as class from '../actions/class';
 
@@ -35,6 +36,14 @@ export function reducer(state = initialState, action: any): State {
         ? productionReducers(state, action)
         : developmentReducers(state, action);
 }
+
+// This returns the quoteState of the totalState.
+export const getQuoteState = (state: State) => state.quote;
+
+// This passes the totalState and calls the getQuoteState funtion to get quoteState.
+// Then it calls getQuote function of quoteState with parameter from the result of getQuoteState()
+// Finally it returns a Quote object
+export const getQuote = createSelector(getQuoteState, fromQuote.getQuote);
 
 @NgModule({
     imports: [

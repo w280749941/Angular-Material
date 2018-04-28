@@ -23,4 +23,6 @@ export function reducer(state: State = initialState, action: actions.Actions): S
     }
 }
 
+
+// This returns a quote object with a quote state.
 export const getQuote = (state: State) => state.quote;

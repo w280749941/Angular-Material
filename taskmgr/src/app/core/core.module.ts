@@ -36,6 +36,7 @@ import 'hammerjs';
 import '../utils/debug.util';
 import { ServicesModule } from '../services/services.module';
 import { AppStoreModule } from '../reducers';
+import { AppEffectsModule } from '../effects';
 @NgModule({
   imports: [
     HttpModule,
@@ -43,6 +44,7 @@ import { AppStoreModule } from '../reducers';
     SharedModule,
     ServicesModule.forRoot(),
     AppStoreModule,
+    AppEffectsModule,
     AppRoutingModule,
   ],
   declarations: [

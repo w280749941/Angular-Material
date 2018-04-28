@@ -17,7 +17,6 @@ export class QuoteAction implements Action {
 
 export class QuoteSuccessAction implements Action {
     type = ActionTypes.QUOTE_SUCCESS;
-
     constructor(public payload: Quote) {
     }
 }
@@ -30,7 +29,4 @@ export class QuoteFailAction implements Action {
 }
 
 
-export type Actions
-    = QuoteAction
-    | QuoteSuccessAction
-    | QuoteFailAction;
+export type Actions = QuoteAction | QuoteSuccessAction | QuoteFailAction;

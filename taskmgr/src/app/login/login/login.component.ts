@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { QuoteService } from '../../services/quote.service';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
@@ -17,14 +16,10 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   quote$: Observable<Quote>;
 
-  constructor(private fb: FormBuilder, private quoteService$: QuoteService,
+  constructor(private fb: FormBuilder,
     private store$: Store<fromRoot.State>) {
-    this.quote$ = this.store$.select(state => state.quote.quote);
-    this.quoteService$
-      .getQuote()
-      .subscribe(q => {
-        this.store$.dispatch({ type: actions.ActionTypes.QUOTE_SUCCESS, payload: q });
-      });
+    this.quote$ = this.store$.select(fromRoot.getQuote);
+    this.store$.dispatch(new actions.QuoteAction(null));
   }
 
   ngOnInit() {
