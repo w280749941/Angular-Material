@@ -4,6 +4,9 @@ import { isValidAddr, extractInfo, getAddrByCode } from '../../utils/identity.ut
 import { isValidDate } from '../../utils/date.util';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../../reducers';
+import * as authActions from '../../actions/auth.action';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +21,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   private _sub: Subscription;
   private readonly avatarName = 'avatars';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private store$: Store<fromRoot.State>) {
 
     this.avatars$ = Observable
       .range(1, 16)
@@ -69,6 +72,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       return;
     }
     console.log(value);
+    this.store$.dispatch(new authActions.RegisterAction(value));
     // this.store$.dispatch(
     //   new actions.RegisterAction({
     //     password: value.password,

@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="openSideBar()">
+  <button mat-icon-button (click)="openSideBar()" *ngIf="(auth$ | async)?.token">
     <mat-icon>menu</mat-icon>
   </button>
   <span>Some Platform</span>
   <span class="fill-remaining-space"></span>
   <mat-slide-toggle (change)="onChange($event.checked)">Night Mode</mat-slide-toggle>
+  <span><a mat-button *ngIf="(auth$ | async)?.token" (click)="logout()">Logout</a></span>
 </mat-toolbar>

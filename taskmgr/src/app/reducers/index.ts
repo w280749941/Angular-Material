@@ -4,25 +4,30 @@ import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 import * as fromQuote from './quote.reducer';
+import * as fromAuth from './auth.reducer';
 import { compose } from '@ngrx/core/src/compose';
 import { environment } from '../../environments/environment';
 import { createSelector } from 'reselect';
+import { Auth } from '../domain/auth.model';
 
 // import * as class from '../actions/class';
 
 // Top level state
 export interface State {
     quote: fromQuote.State;
+    auth: Auth;
 }
 
 // Top level initial state
 const initialState: State = {
     quote: fromQuote.initialState,
+    auth: fromAuth.initialState,
 };
 
 // All reducers
 const reducers = {
     quote: fromQuote.reducer,
+    auth: fromAuth.reducer,
 };
 
 // Prod & Dev reducers
@@ -39,6 +44,7 @@ export function reducer(state = initialState, action: any): State {
 
 // This returns the quoteState of the totalState.
 export const getQuoteState = (state: State) => state.quote;
+export const getAuthState = (state: State) => state.auth;
 
 // This passes the totalState and calls the getQuoteState funtion to get quoteState.
 // Then it calls getQuote function of quoteState with parameter from the result of getQuoteState()

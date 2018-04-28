@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
 import * as actions from '../../actions/quote.action';
 import { Quote } from '../../domain';
+import * as authActions from '../../actions/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -24,29 +25,31 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      email: ['xxx@gmail.com', Validators.compose([Validators.required, Validators.email, this.validate])],
+      email: ['xxx@gmail.com', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required]
     });
   }
 
   onSubmit({ value, valid }, ev: Event) {
     ev.preventDefault();
-    console.log(JSON.stringify(value, null, 2));
-    console.log(valid);
-    this.form.controls['email'].setValidators(this.validate); // Set validator programmatically.
+    if (!valid) {
+      return;
+    }
+    this.store$.dispatch(new authActions.LoginAction(value));
+    // this.form.controls['email'].setValidators(this.validate); // Set validator programmatically.
   }
 
-  validate(c: FormControl): { [key: string]: any } {
-    if (!c.value) {
-      return null;
-    }
-    const pattern = /^xxx+/;
-    if (pattern.test(c.value)) {
-      return null;
-    }
-    return {
-      emailNotValid: 'Email is not good'
-    };
-  }
+  // validate(c: FormControl): { [key: string]: any } {
+  //   if (!c.value) {
+  //     return null;
+  //   }
+  //   const pattern = /^xxx+/;
+  //   if (pattern.test(c.value)) {
+  //     return null;
+  //   }
+  //   return {
+  //     emailNotValid: 'Email is not good'
+  //   };
+  // }
 
 }
